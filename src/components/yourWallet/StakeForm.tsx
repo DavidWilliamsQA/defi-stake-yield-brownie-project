@@ -20,7 +20,9 @@ export const StakeForm = ({token}: StakeFormProps) => {
 
     const [amount, setAmount] = useState<number | string | Array<number | string>>(0)
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newAmount = event.target.value === "" ? "" :Number(event.target.value)
+        const newAmount = event.target.value === "" ? "" : Number(event.target.value)
+        setAmount(newAmount)
+        console.log(newAmount)
     }
 
     const {approveAndStake, state: approveAndStakeErc20State} = useStakeTokens(tokenAddress)
